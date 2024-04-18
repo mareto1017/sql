@@ -2,7 +2,7 @@ package vo;
 
 public class Emp {
 	public int empNo;
-	public int ename;
+	public String ename;
 	public String job;
 	public int mgr;
 	public String hireDate;
