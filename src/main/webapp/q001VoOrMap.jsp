@@ -81,7 +81,6 @@
 		%>
 	</table>
 	
-	</table>
 	<h1>Emp Dept List</h1>
 	<table border="1">
 		<tr>
