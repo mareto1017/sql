@@ -8,6 +8,22 @@ public class Emp {
 	private String hireDate;
 	private double sal;
 	private double comm;
+	public int deptNo;
+	public String getPw() {
+		return pw;
+	}
+	public void setPw(String pw) {
+		this.pw = pw;
+	}
+	public int getGrade() {
+		return grade;
+	}
+	public void setGrade(int grade) {
+		this.grade = grade;
+	}
+	private String pw;
+	private int grade;
+	
 	
 	public int getEmpNo() {
 		return empNo;
@@ -57,5 +73,5 @@ public class Emp {
 	public void setDeptNo(int deptNo) {
 		this.deptNo = deptNo;
 	}
-	public int deptNo;
+	
 }

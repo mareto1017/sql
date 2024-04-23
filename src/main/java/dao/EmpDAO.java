@@ -125,4 +125,40 @@ public class EmpDAO {
 		
 		return list;
 	}
+	
+	// emp 목록(등급)
+	// 파라미터 : ckList
+	// ckList에 들어있는 grade 값이랑 같은 emp들을 반환(ArrayList)
+	public static ArrayList<Emp> selectEmpListByGrade(ArrayList<Integer> ckList) throws Exception{
+		ArrayList<Emp> list = new ArrayList<>();
+		String str = "(";
+		int size = ckList.size();
+		int index = 0;
+		for(Integer i : ckList) {
+			index++;
+			if(index < size) {
+				str += "" + i + ",";
+			} else {
+				str += "" + i;
+			}
+		}
+		str += ")";
+		System.out.println(str);
+		String sql = null;
+		sql = "SELECT ename, grade "
+				+ "FROM emp "
+				+ "WHERE grade in " + str;
+		System.out.println(sql);
+		Connection conn = DBHelper.getConnection();
+		PreparedStatement stmt = conn.prepareStatement(sql);
+		ResultSet rs = stmt.executeQuery();
+		while(rs.next()) {
+			Emp e = new Emp();
+			e.setEname(rs.getString("ename"));
+			e.setGrade(rs.getInt("grade"));
+			list.add(e);
+		}
+		
+		return list;
+	}
 }
